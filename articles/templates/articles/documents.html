@@ -2,5 +2,7 @@
 {% block title %}Документы{% endblock %}
 {% block content %}
     documents
+    <p><a href="{% url 'documents' %}">Return to home</a></p>
+    {{ document }}
     
 {% endblock %}

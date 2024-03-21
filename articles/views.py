@@ -1,11 +1,25 @@
-from django.shortcuts import render
-from django.views import View
+from django.shortcuts import redirect, render
+from articles.models import Document
+from .forms import DocumentForm
 
-# Create your views here.
+    
+def documentsList(request):
+    documents = Document.objects.all()
+    # reader = PdfFileReader(documents.file)
+    
 
+    return render(request, 'articles/documents.html', {'document': documents})
+    
 
-class DocumentsView(View):
-    template_name = 'articles/documents.html'
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('list')
+    else:
+        form = DocumentForm()
+    return render(request, 'articles/upload.html', {
+        'form': form
+    })
 
-    def get(self, request):
-        return render(request, self.template_name)
