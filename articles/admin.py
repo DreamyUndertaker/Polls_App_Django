@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Document
 
-class Documnet(admin.TabularInline):
-    model = Document
+from .models import Lecture
 
-admin.site.register(Document)
+admin.site.register(Lecture)

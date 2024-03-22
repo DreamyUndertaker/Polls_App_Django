@@ -1,7 +1,7 @@
 from django import forms
-from .models import Document
+from .models import Lecture
 
-class DocumentForm(forms.ModelForm):
+class LectureForm(forms.ModelForm):
     class Meta:
-        model = Document
-        fields = ('description', 'document', )
+        model = Lecture
+        fields = ['title', 'pdf_file']

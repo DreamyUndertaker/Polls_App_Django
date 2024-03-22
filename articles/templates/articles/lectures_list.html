@@ -1,0 +1,18 @@
+{% extends 'home/layout.html' %}
+{% block title %} Список лекций {% endblock %}
+{% block content %}
+<p><a href="{% url 'upload_lecture' %}">upload_lecture</a></p>
+    <h1>Список лекций</h1>
+    {% if lectures %}
+    <ul>
+        {% for lectures in lectures %}
+            <li>
+                <a href="{{ lectures.pdf_file.url }}">{{ lectures.title }}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>У вас нет добавленных статей</p>
+    {% endif %}
+{% endblock %}
