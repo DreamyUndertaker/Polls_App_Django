@@ -1,55 +1,58 @@
-
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.http import Http404, HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render, redirect
-from django.urls import reverse
-from .models import Question, Choice, Vote
+from .models import Question, Answer, UserTest
 
-def index(request):
-    all_questions = Question.objects.order_by('-published')[:5]
-    context = {'all_questions': all_questions}
-    return render(request, 'polls/index.html', context)
+def upload_questions(request):
+    if request.method == 'POST' and request.FILES['file']:
+        uploaded_file = request.FILES['file']
+        process_file(uploaded_file)
+        return HttpResponseRedirect('/polls/display/')
+    return render(request, 'polls/upload_questions.html')
 
-def detail(request, question_id):
-    try:
-        question = Question.objects.get(pk=question_id)
-    except Question.DoesNotExist:
-        raise Http404('Нет такого вопроса')
-    return render(request, 'polls/detail.html', {'question': question})
+def process_file(uploaded_file):
+    file_content = uploaded_file.read().decode('windows-1251')
+    lines = file_content.split('\n')
+    current_question = None
+    for line in lines:
+        line = line.strip()
+        if line.startswith('-'):
+            if current_question is not None:
+                current_question.save()  # Сохраняем текущий вопрос
+            current_question = Question(question_text=line[1:])
+            current_question.save()  # Сохраняем новый вопрос
+        elif line.startswith('/'):
+            answer_text = line[1:]
+            is_correct = False
+            if answer_text.startswith('*'):
+                answer_text = answer_text[1:]
+                is_correct = True
+            answer = Answer(question=current_question, answer_text=answer_text, is_correct=is_correct)
+            answer.save()  # Сохраняем ответ
+    if current_question is not None:
+        current_question.save()
 
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    labels = []
-    data = []
-    question = Question.objects.get(id=question_id)
-    votes = question.choice_set.all()
-    for item in votes:
-        labels.append(item.name)
-        data.append(item.votes)
-    context = {'question': question, 'labels': labels, 'data': data}    
-    return render(request, 'polls/results.html', context)
+def display_questions(request):
+    questions = Question.objects.all()
+    return render(request, 'polls/display_questions.html', {'questions': questions})
 
-@login_required()
-def vote(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    try:
-        user_choice = question.choice_set.get(pk=request.POST['choice'])
-        # Блок отвечающий за заперт повтороного голосования
-        # if not question.user_voted(request.user):
-        #     return render(request, 'polls/detail.html',  {
-        #     'question': question,
-        #     'error_message': 'Вы уже голосовали в этом опросе. Выберите другой опрос.',
-        # })
-        # Блок отвечающий за заперт повтороного голосования
-        if user_choice:
-            user_choice.votes += 1
-            user_choice.save()
-            vote = Vote(user=request.user, question=question, choice=user_choice)
-            vote.save()
-            return HttpResponseRedirect(reverse('results', args=(question.id,)))
-    except (KeyError, Choice.DoesNotExist):
-        return render(request, 'detail.html', {
-            'question': question,
-            'error_message': 'Вы не выбрали вариант ответа!',
-        })
-    return render(request, 'polls/results.html', {'question': question})
+
+@login_required
+def take_test(request):
+    questions = Question.objects.all()
+    if request.method == 'POST':
+        user = request.user
+        for question in questions:
+            selected_answers = request.POST.getlist(f'answers_{question.id}')
+            for answer_id in selected_answers:
+                answer = Answer.objects.get(id=answer_id)
+                is_correct = answer.is_correct
+                UserTest.objects.create(user=user, question=question, answer=answer, is_correct=is_correct)
+        return redirect('test_result')
+    return render(request, 'polls/take_test.html', {'questions': questions})
+
+
+@login_required
+def test_result(request):
+    user_tests = UserTest.objects.filter(user=request.user)
+    return render(request, 'polls/test_result.html', {'user_tests': user_tests})

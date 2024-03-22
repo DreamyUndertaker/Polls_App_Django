@@ -36,7 +36,6 @@ LOGIN_REDIRECT_URL = '/home/'
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'rest_framework',
-    'testing',
     'home',
     'registration',
     'articles',
