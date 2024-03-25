@@ -1,0 +1,114 @@
+Index: polls/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render, redirect\nfrom django.http import HttpResponseRedirect\nfrom django.contrib.auth.decorators import login_required\nfrom .models import Question, Answer, UserTest\n\ndef upload_questions(request):\n    if request.method == 'POST' and request.FILES['file']:\n        uploaded_file = request.FILES['file']\n        process_file(uploaded_file)\n        return HttpResponseRedirect('/polls/display/')\n    return render(request, 'polls/upload_questions.html')\n\ndef process_file(uploaded_file):\n    file_content = uploaded_file.read().decode('windows-1251')\n    lines = file_content.split('\\n')\n    current_question = None\n    for line in lines:\n        line = line.strip()\n        if line.startswith('-'):\n            if current_question is not None:\n                current_question.save()  # Сохраняем текущий вопрос\n            current_question = Question(question_text=line[1:])\n            current_question.save()  # Сохраняем новый вопрос\n        elif line.startswith('/'):\n            answer_text = line[1:]\n            is_correct = False\n            if answer_text.startswith('*'):\n                answer_text = answer_text[1:]\n                is_correct = True\n            answer = Answer(question=current_question, answer_text=answer_text, is_correct=is_correct)\n            answer.save()  # Сохраняем ответ\n    if current_question is not None:\n        current_question.save()\n\ndef display_questions(request):\n    questions = Question.objects.all()\n    return render(request, 'polls/display_questions.html', {'questions': questions})\n\n\n@login_required\ndef take_test(request):\n    questions = Question.objects.all()\n    if request.method == 'POST':\n        user = request.user\n        for question in questions:\n            selected_answers = request.POST.getlist(f'answers_{question.id}')\n            for answer_id in selected_answers:\n                answer = Answer.objects.get(id=answer_id)\n                is_correct = answer.is_correct\n                UserTest.objects.create(user=user, question=question, answer=answer, is_correct=is_correct)\n        return redirect('test_result')\n    return render(request, 'polls/take_test.html', {'questions': questions})\n\n\n@login_required\ndef test_result(request):\n    user_tests = UserTest.objects.filter(user=request.user)\n    return render(request, 'polls/test_result.html', {'user_tests': user_tests})\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/polls/views.py b/polls/views.py
+--- a/polls/views.py	(revision 2ece9974f2dc2b60ee14e82f1a5cbdc801d01c04)
++++ b/polls/views.py	(date 1711521952837)
+@@ -1,58 +1,55 @@
+ from django.shortcuts import render, redirect
+-from django.http import HttpResponseRedirect
+-from django.contrib.auth.decorators import login_required
++
++from .forms import QuestionForm
+ from .models import Question, Answer, UserTest
+ 
++from .models import QuestionFile
++
++
+ def upload_questions(request):
+-    if request.method == 'POST' and request.FILES['file']:
+-        uploaded_file = request.FILES['file']
+-        process_file(uploaded_file)
+-        return HttpResponseRedirect('/polls/display/')
+-    return render(request, 'polls/upload_questions.html')
++    if request.method == 'POST':
++        form = QuestionForm(request.POST, request.FILES)
++        if form.is_valid():
++            question = form.save()  # Сохраняем форму, это создаст объект Question с прикрепленным файлом
++            process_file(question.file)  # Обрабатываем файл
++            return redirect('test_list')  # Редирект на страницу списка тестов
++    else:
++        form = QuestionForm()
++    return render(request, 'polls/upload_questions.html', {'form': form})
++
+ 
+ def process_file(uploaded_file):
+-    file_content = uploaded_file.read().decode('windows-1251')
+-    lines = file_content.split('\n')
+-    current_question = None
+-    for line in lines:
+-        line = line.strip()
+-        if line.startswith('-'):
+-            if current_question is not None:
+-                current_question.save()  # Сохраняем текущий вопрос
+-            current_question = Question(question_text=line[1:])
+-            current_question.save()  # Сохраняем новый вопрос
+-        elif line.startswith('/'):
+-            answer_text = line[1:]
+-            is_correct = False
+-            if answer_text.startswith('*'):
+-                answer_text = answer_text[1:]
+-                is_correct = True
+-            answer = Answer(question=current_question, answer_text=answer_text, is_correct=is_correct)
+-            answer.save()  # Сохраняем ответ
+-    if current_question is not None:
+-        current_question.save()
++    print("Reading file...")
++    try:
++        file_content = uploaded_file.open().read().decode('windows-1251')  # Чтение содержимого файла
++        # print("File content:", file_content)
++        lines = file_content.splitlines()  # Разбиение содержимого файла на строки
++        current_question = None
++        for line in lines:
++            line = line.strip()
++            if line.startswith('-'):
++                if current_question is not None and current_question.question_text.strip():
++                    current_question.save()  # Сохраняем текущий вопрос, если он не пустой
++                current_question = Question.objects.create(question_text=line[1:].strip())  # Создаем новый вопрос
++            elif line.startswith('/'):
++                if current_question is not None:
++                    answer_text = line[1:].strip()  # Получаем текст ответа
++                    is_correct = answer_text.endswith('*')  # Проверяем, является ли ответ правильным
++                    answer_text = answer_text[
++                                  :-1].strip() if is_correct else answer_text.strip()  # Удаляем звездочку из текста ответа, если есть
++                    Answer.objects.create(question=current_question, answer_text=answer_text,
++                                          is_correct=is_correct)  # Создаем ответ
++        if current_question is not None and current_question.question_text.strip():
++            current_question.save()  # Сохраняем последний вопрос, если он не пустой
++    except Exception as e:
++        print(f"Ошибка при чтении файла: {e}")
+ 
+-def display_questions(request):
+-    questions = Question.objects.all()
+-    return render(request, 'polls/display_questions.html', {'questions': questions})
+ 
++def test_list(request):
++    tests = UserTest.objects.all()
++    return render(request, 'polls/test_list.html', {'tests': tests})
+ 
+-@login_required
+-def take_test(request):
+-    questions = Question.objects.all()
+-    if request.method == 'POST':
+-        user = request.user
+-        for question in questions:
+-            selected_answers = request.POST.getlist(f'answers_{question.id}')
+-            for answer_id in selected_answers:
+-                answer = Answer.objects.get(id=answer_id)
+-                is_correct = answer.is_correct
+-                UserTest.objects.create(user=user, question=question, answer=answer, is_correct=is_correct)
+-        return redirect('test_result')
+-    return render(request, 'polls/take_test.html', {'questions': questions})
+ 
+-
+-@login_required
+-def test_result(request):
+-    user_tests = UserTest.objects.filter(user=request.user)
+-    return render(request, 'polls/test_result.html', {'user_tests': user_tests})
++def test_detail(request, test_id):
++    test = UserTest.objects.get(pk=test_id)
++    return render(request, 'polls/test_detail.html', {'test': test})
