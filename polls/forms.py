@@ -1,7 +1,9 @@
 from django import forms
-from .models import Question
+from .models import QuestionFile
+
 
 class QuestionForm(forms.ModelForm):
     class Meta:
-        model = Question
-        fields = ['question_text', 'question_file']
+        model = QuestionFile
+        fields = ['title', 'file']
+        required = ['title', 'file']

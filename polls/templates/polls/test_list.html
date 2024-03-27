@@ -1,0 +1,17 @@
+{% extends 'home/layout.html' %}
+{% block content %}
+<h1>Test List</h1>
+<a href="{% url 'upload_questions' %}">Upload</a>
+<ul>
+    {% if tests %}
+    <ul>
+        {% for test in tests %}
+            <li>{{ test }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No tests available</p>
+{% endif %}
+</ul>
+
+{% endblock %}
