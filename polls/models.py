@@ -2,14 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class QuestionFile(models.Model):  # Исправлено на QuestionFile
-    title = models.CharField(max_length=255, default='')
-    file = models.FileField(upload_to='polls/quiz/', default='default_file', null=True, blank=True)
+class QuestionFile(models.Model):
+    title = models.CharField(max_length=255, default='1')
+    file = models.FileField(upload_to='polls/quiz/', null=False, blank=False, default=None)
 
 
 class Question(models.Model):
     title = models.CharField(max_length=255, default='')
-    file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
+    file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE, null=True, blank=True)
     question_text = models.CharField(max_length=255, null=True)
 
     def __str__(self):

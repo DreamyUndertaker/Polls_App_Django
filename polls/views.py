@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect
 from .forms import QuestionForm
 from .models import Question, Answer, UserTest
 
-from .models import QuestionFile
-
 
 def upload_questions(request):
     if request.method == 'POST':
@@ -35,8 +33,8 @@ def process_file(uploaded_file):
                 if current_question is not None:
                     answer_text = line[1:].strip()  # Получаем текст ответа
                     is_correct = answer_text.endswith('*')  # Проверяем, является ли ответ правильным
-                    answer_text = answer_text[
-                                  :-1].strip() if is_correct else answer_text.strip()  # Удаляем звездочку из текста ответа, если есть
+                    answer_text = answer_text[:-1].strip() if is_correct else answer_text.strip()  # Удаляем
+                    # звездочку из текста ответа, если есть
                     Answer.objects.create(question=current_question, answer_text=answer_text,
                                           is_correct=is_correct)  # Создаем ответ
         if current_question is not None and current_question.question_text.strip():
