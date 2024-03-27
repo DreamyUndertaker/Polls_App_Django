@@ -3,7 +3,7 @@
     <h2>Upload Questions</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="file">
+        {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
 
