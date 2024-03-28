@@ -26,7 +26,7 @@ class UserTest(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
     is_correct = models.BooleanField(default=False)
-
+    correct_answers_count = models.IntegerField(default=0)
     question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
 
     def __str__(self):

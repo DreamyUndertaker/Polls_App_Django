@@ -58,21 +58,17 @@ def submit_test(request, question_file_id):
                 question_id = int(key.split('_')[1])
                 submitted_answers[question_id] = int(value)
 
-        # Сравниваем ответы с правильными ответами и определяем количество правильных ответов
-        correct_answers_count = 0
-        for question in question_file.question_set.all():
-            correct_answer = question.answer_set.filter(is_correct=True).first()
-            if correct_answer is not None and submitted_answers.get(question.id) == correct_answer.id:
-                correct_answers_count += 1
-
         # Сохраняем результаты тестирования
         user = request.user  # Получаем пользователя
-        user_test = UserTest.objects.create(user=user, question_file=question_file,
-                                            correct_answers_count=correct_answers_count)
+        for question_id, answer_id in submitted_answers.items():
+            question = get_object_or_404(Question, pk=question_id)
+            answer = get_object_or_404(Answer, pk=answer_id)
+            is_correct = answer.is_correct
+            UserTest.objects.create(user=user, question=question, answer=answer, is_correct=is_correct,
+                                    question_file=question_file)
 
-        # Выводим сообщение о количестве правильных ответов
-        messages.success(request,
-                         f'You answered {correct_answers_count} out of {question_file.question_set.count()} questions correctly!')
+        # Выводим сообщение об успешном завершении теста
+        messages.success(request, f'Test submitted successfully!')
 
         return redirect('test_list')  # Перенаправление на страницу списка тестов
     else:
