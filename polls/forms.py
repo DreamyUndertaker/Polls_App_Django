@@ -6,4 +6,4 @@ class QuestionForm(forms.ModelForm):
     class Meta:
         model = QuestionFile
         fields = ['title', 'file']
-        required = ['title', 'file']
+        # required = ['title', 'file']

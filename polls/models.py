@@ -8,12 +8,8 @@ class QuestionFile(models.Model):
 
 
 class Question(models.Model):
-    title = models.CharField(max_length=255, default='')
-    file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE, null=True, blank=True)
+    question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=255, null=True)
-
-    def __str__(self):
-        return self.question_text or ''
 
 
 class Answer(models.Model):
@@ -27,9 +23,11 @@ class Answer(models.Model):
 
 class UserTest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    answer = models.ForeignKey('Answer', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
     is_correct = models.BooleanField(default=False)
+
+    question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user.username}'s Test Result"
