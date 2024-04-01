@@ -1,0 +1,21 @@
+{% extends 'home/layout.html' %}
+{% block title %}{{ instruction.title }}{% endblock %}
+{% block content %}
+    <div class="display-6">
+        <div class="">
+            <a href="{% url 'home' %}" class="text-decoration-none btn btn-secondary btn-lg">
+                Обратно к списку
+            </a>
+        </div>
+        <div class="">
+            <h2>
+                Название инструкции: {{ instruction.title }}
+            </h2>
+        </div>
+        <div>
+            <span>
+                Текст инуструкции: {{ instruction.description }}
+            </span>
+        </div>
+    </div>
+{% endblock %}

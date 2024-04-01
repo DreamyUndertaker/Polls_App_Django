@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Issue with count result">
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/tt_x9VTuUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/polls/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/polls/migrations/0002_remove_usertest_question_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/polls/migrations/0003_usertest_question_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/polls/migrations/0004_auto_20240328_0720.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/polls/migrations/__init__.py" afterDir="false" />
+    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Result fixed&#10;Issue with double add polls file">
+      <change afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0002_alter_instructions_options.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0003_instructions_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/home/instructions_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/homePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/homePage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +70,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="53ab6a91-7895-431b-a4e1-c0e775eede90" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -88,8 +97,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Test&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Dreamy_Undertaker/Документы/repos/test&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/Dreamy_Undertaker/MyFolder/Work/repos/test&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -145,7 +155,12 @@
       <workItem from="1711522094556" duration="5491000" />
       <workItem from="1711600189819" duration="3932000" />
       <workItem from="1711605373687" duration="3853000" />
-      <workItem from="1711609252003" duration="887000" />
+      <workItem from="1711609252003" duration="1269000" />
+      <workItem from="1711611488196" duration="1187000" />
+      <workItem from="1711650360887" duration="261000" />
+      <workItem from="1711773080189" duration="887000" />
+      <workItem from="1711961051929" duration="5949000" />
+      <workItem from="1711967593929" duration="2272000" />
     </task>
     <task id="LOCAL-00001" summary="Issue with file upload">
       <option name="closed" value="true" />
@@ -187,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711609161415</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Result fixed&#10;Issue with double add polls file">
+      <option name="closed" value="true" />
+      <created>1711610826476</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711610826476</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +246,7 @@
     <MESSAGE value="Some changes" />
     <MESSAGE value="Issue with file upload, open,read and save fixed" />
     <MESSAGE value="Issue with count result" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue with count result" />
+    <MESSAGE value="Result fixed&#10;Issue with double add polls file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Result fixed&#10;Issue with double add polls file" />
   </component>
 </project>
