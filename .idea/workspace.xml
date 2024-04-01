@@ -4,24 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Added instructions model, view, template&#10;Issue with double add polls file">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0004_remove_instructions_description_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/home/instructions/django-readthedocs-io-en-stable.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/home/instructions/Заметки_по_проекту.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/home/instructions/краткий_курс_работы.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/home/instructions/тоже_код_на_случай_если_тексотовый_будет_косячный.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/lectures/pdfs/django-readthedocs-io-en-stable_3A9aDAs.pdf" afterDir="false" />
+    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Cosmetic changes &#10;Issue with double add polls file">
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_SenOUIl.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_U1x9oVk.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_oZ7bGWd.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls/migrations/0006_alter_questionfile_title.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls/migrations/0007_alter_questionfile_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls/migrations/0008_alter_questionfile_file_alter_questionfile_title.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/templates/articles/documents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/templates/articles/lectures_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/lectures_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/homePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/homePage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/polls/display_questions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/polls/submit_test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/polls/test_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/polls/test_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +156,7 @@
       <workItem from="1711773080189" duration="887000" />
       <workItem from="1711961051929" duration="5949000" />
       <workItem from="1711967593929" duration="2272000" />
-      <workItem from="1711971164324" duration="2071000" />
+      <workItem from="1711971164324" duration="2847000" />
     </task>
     <task id="LOCAL-00001" summary="Issue with file upload">
       <option name="closed" value="true" />
@@ -221,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711971325309</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Cosmetic changes &#10;Issue with double add polls file">
+      <option name="closed" value="true" />
+      <created>1711973296471</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711973296471</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +260,7 @@
     <MESSAGE value="Issue with count result" />
     <MESSAGE value="Result fixed&#10;Issue with double add polls file" />
     <MESSAGE value="Added instructions model, view, template&#10;Issue with double add polls file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added instructions model, view, template&#10;Issue with double add polls file" />
+    <MESSAGE value="Cosmetic changes &#10;Issue with double add polls file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cosmetic changes &#10;Issue with double add polls file" />
   </component>
 </project>
