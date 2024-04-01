@@ -5,7 +5,6 @@ from django.urls import reverse
 # Create your models here.
 class Instructions(models.Model):
     title = models.CharField(max_length=30)
-    description = models.TextField()
     file = models.FileField(upload_to='home/instructions/', default=None, null=False, blank=False)
     # TODO make fileField
 

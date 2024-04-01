@@ -13,11 +13,12 @@ class HomeView(ListView):
 
 # TODO def to parse file with instruction text
 
-class InstructionDetail(DetailView):
-    template_name = 'home/instructions_detail.html'
-    model = Instructions
 
-    def get_context_data(self, **kwargs):
-        return super(InstructionDetail, self).get_context_data(**kwargs)
-
-    context_object_name = 'instruction'
+# class InstructionDetail(DetailView):
+#     template_name = 'home/instructions_detail.html'
+#     model = Instructions
+#
+#     def get_context_data(self, **kwargs):
+#         return super(InstructionDetail, self).get_context_data(**kwargs)
+#
+#     context_object_name = 'instruction'
