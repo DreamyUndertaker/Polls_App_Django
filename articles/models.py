@@ -7,3 +7,7 @@ class Lecture(models.Model):
 
     def str(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Файл лекций'
+        verbose_name_plural = 'Файлы лекций'

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views import generic
-from .models import Lecture
+
 from .forms import LectureForm
+from .models import Lecture
+from weasypdf.views import WeasypdfView
 
 
 class LecturesList(generic.ListView):
@@ -20,3 +22,6 @@ def upload_lecture(request):
     else:
         form = LectureForm()
     return render(request, 'articles/upload_lecture.html', {'form': form})
+
+
+
