@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Issue with double add polls file and with parse files">
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_4iRSX8j.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_6xl8M5B.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_CdtD9pb.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_HhJHoA0.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_ROGsfkm.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_SRQUe1X.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_WM9jegk.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_aRsPCZr.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reportlab" afterDir="false" />
+    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Cosmetic changes&#10;Issue with double add polls file and with parse files">
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_2Ek4V3e.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_XQm76eg.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_shq6rKi.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/templates/articles/lectures_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/lectures_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/polls/test_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/polls/test_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +153,7 @@
       <workItem from="1711961051929" duration="5949000" />
       <workItem from="1711967593929" duration="2272000" />
       <workItem from="1711971164324" duration="3595000" />
-      <workItem from="1711995038966" duration="9187000" />
+      <workItem from="1711995038966" duration="10798000" />
     </task>
     <task id="LOCAL-00001" summary="Issue with file upload">
       <option name="closed" value="true" />
@@ -237,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711974234383</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cosmetic changes&#10;Issue with double add polls file and with parse files">
+      <option name="closed" value="true" />
+      <created>1712041988555</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712041988555</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +275,7 @@
     <MESSAGE value="Added instructions model, view, template&#10;Issue with double add polls file" />
     <MESSAGE value="Cosmetic changes &#10;Issue with double add polls file" />
     <MESSAGE value="Issue with double add polls file and with parse files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue with double add polls file and with parse files" />
+    <MESSAGE value="Cosmetic changes&#10;Issue with double add polls file and with parse files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cosmetic changes&#10;Issue with double add polls file and with parse files" />
   </component>
 </project>

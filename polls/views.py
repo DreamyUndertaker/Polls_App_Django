@@ -17,6 +17,7 @@ def upload_questions(request):
     return render(request, 'polls/upload_questions.html', {'form': form})
 
 
+# TODO сделать обработку файла на этапе загрузки его от админа в бд
 def process_file(uploaded_file):
     try:
         file_content = uploaded_file.open().read().decode('windows-1251')
