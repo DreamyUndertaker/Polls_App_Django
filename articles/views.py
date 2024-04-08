@@ -3,7 +3,6 @@ from django.views import generic
 
 from .forms import LectureForm
 from .models import Lecture
-from weasypdf.views import WeasypdfView
 
 
 class LecturesList(generic.ListView):

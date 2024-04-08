@@ -4,93 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Work day is out &#10;Issue with double add polls file and with parse files">
+    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Redacted directories for instructions&#10;TODO: parse file">
+      <change afterPath="$PROJECT_DIR$/articles/migrations/0003_alter_lecture_options.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0005_alter_instructions_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_1KRJySS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_GYP6Pk3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_HUrWVUS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_HlGXJ2X.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_XRNDy24.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_btPURzw.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_tN0E8Vh.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_u7IyQTN.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls/migrations/0009_alter_answer_options_alter_question_options_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls/migrations/0010_alter_questionfile_title.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/articles/templates/articles/lectures_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/lectures_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/home/instructions/django-readthedocs-io-en-stable.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/home/instructions/Заметки_по_проекту.txt" beforeDir="false" afterPath="$PROJECT_DIR$/media/instructions/Заметки_по_проекту.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/home/instructions/краткий_курс_работы.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/home/instructions/тоже_код_на_случай_если_тексотовый_будет_косячный.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/lectures/pdfs/django-readthedocs-io-en-stable_3A9aDAs.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_0tg9aHy.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_2qzm9ze.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_31ptPDV.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_3HGeA9Z.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_3XMZ5P6.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_53bp8EI.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_64Ttyhr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_8YH9qen.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_8j0hUUd.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_8mpKzMj.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_BAl6M6h.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_EuJ3MtC.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_Ew5XRkz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_FXkKujD.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_HWBvHpk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_HqUSv0x.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_JPzKkiz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_JbmQfo1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_JenUVO3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_LAMTNen.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_NqHQXUZ.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_OUySppZ.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_Q0kWZ0T.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_Q6uVKpY.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_ROx1xHt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_RfZ7j87.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_TWhLZ28.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_ayB6tMk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_dtbEwl5.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_eKCTzhx.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_eQ8w4Rk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_fj3bc16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_hjR1JW9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_hsKmiS7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_iksOdTA.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_jDbrtI4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_jGXbwq5.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_jYYumdU.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_lMJgyhl.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_mCxRWIW.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_mwjrEfc.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_nMYkUMz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_nUNmX7H.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_obq9Ihz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_qymD6Yh.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_rgaqiZ4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_rlVWkXv.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_tjXu2uM.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_v3oOso9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_vD9e6UF.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_vvKlUj7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_vzNhRSs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_wBIMlkV.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_wDL4rPd.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_x9VTuUT.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_xB89WpV.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_ylZ13XI.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/tt_z4AwVPo.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_2Ek4V3e.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_4iRSX8j.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_6xl8M5B.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_CdtD9pb.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_HhJHoA0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_ROGsfkm.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_SRQUe1X.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_SenOUIl.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_U1x9oVk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_WM9jegk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_XQm76eg.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_aRsPCZr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_hOO9rFD.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_met7vYb.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_oZ7bGWd.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/polls/quiz/тест_крипто_про_shq6rKi.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,26 +92,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Test&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Dreamy_Undertaker/MyFolder/Work/repos/test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.test.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "Test",
+    "last_opened_file_path": "/home/Dreamy_Undertaker/MyFolder/Work/repos/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/media" />
@@ -245,7 +179,7 @@
       <workItem from="1712108879936" duration="64000" />
       <workItem from="1712110003530" duration="42000" />
       <workItem from="1712117265802" duration="66000" />
-      <workItem from="1712555851599" duration="1512000" />
+      <workItem from="1712555851599" duration="4155000" />
     </task>
     <task id="LOCAL-00001" summary="Issue with file upload">
       <option name="closed" value="true" />
@@ -335,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712044194202</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Redacted directories for instructions&#10;TODO: parse file">
+      <option name="closed" value="true" />
+      <created>1712557450115</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712557450115</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +319,7 @@
     <MESSAGE value="Issue with double add polls file and with parse files" />
     <MESSAGE value="Cosmetic changes&#10;Issue with double add polls file and with parse files" />
     <MESSAGE value="Work day is out &#10;Issue with double add polls file and with parse files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work day is out &#10;Issue with double add polls file and with parse files" />
+    <MESSAGE value="Redacted directories for instructions&#10;TODO: parse file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redacted directories for instructions&#10;TODO: parse file" />
   </component>
 </project>

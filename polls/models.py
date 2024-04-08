@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class QuestionFile(models.Model):
-    title = models.CharField(max_length=255, default='1')
+    title = models.CharField(max_length=255)
     file = models.FileField(upload_to='polls/quiz/', null=False, blank=False, default=None)
 
     class Meta:
@@ -47,3 +47,17 @@ class UserTest(models.Model):
     class Meta:
         verbose_name = 'Вариант ответа пользователя'
         verbose_name_plural = 'Варианты ответов пользователя'
+
+
+class UserScore(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
+    total_questions = models.IntegerField(default=0)
+    question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.username}'s Score"
+
+    class Meta:
+        verbose_name = 'Оценка пользователя'
+        verbose_name_plural = 'Оценки пользователей'
