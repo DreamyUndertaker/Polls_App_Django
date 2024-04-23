@@ -1,4 +1,3 @@
-
 <h1>{{ test.title }}</h1>
 <title>{{ test.title }}</title>
 <form method="post" action="{% url 'submit_test' test.id %}">
@@ -10,7 +9,8 @@
         <ul>
           {% for answer in question.answer_set.all %}
             <li>
-              <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}">
+              <input type="checkbox" name="question_{{ question.id }}" value="{{ answer.id }}"
+                     {% if question.id|add:":"|add:answer.id in user_answers %} checked {% endif %}>
               {{ answer.answer_text }} {% if answer.is_correct %}(Correct){% endif %}
             </li>
           {% endfor %}
