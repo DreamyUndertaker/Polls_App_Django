@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict
 from django.contrib import messages
+from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import QuestionForm
 from .models import Question, Answer, QuestionFile, UserTest, UserScore
@@ -97,9 +98,12 @@ def submit_test(request, question_file_id):
             # Флаг правильных ответов на текущий вопрос
             correct = True
 
+            # Получаем все ответы пользователя для текущего вопроса
+            user_answers_for_question = user_answers.getlist(f"question_{question.id}")
+
             # Проверяем, есть ли каждый из правильных ответов пользователя среди правильных ответов на вопрос
             for answer in correct_answers:
-                if user_answers.get(f"question_{question.id}") != str(answer.id):
+                if str(answer.id) not in user_answers_for_question:
                     correct = False
                     break
 
@@ -135,45 +139,24 @@ def test_detail(request, test_id):
 
 
 def test_result(request, question_file_id):
-    # Получаем объект теста
-    test = get_object_or_404(QuestionFile, pk=question_file_id)
+    try:
+        # Получаем объект теста
+        test = QuestionFile.objects.get(pk=question_file_id)
+    except QuestionFile.DoesNotExist:
+        # Если тест не найден, выводим сообщение об ошибке
+        raise Http404("Test does not exist")
 
     # Получаем оценку пользователя для данного теста
     user_score = get_object_or_404(UserScore, user=request.user, question_file=test)
 
-    # Получаем все вопросы для данного теста
-    questions = test.question_set.all()
-
-    # Получаем ответы пользователя для данного теста
-    user_tests = UserTest.objects.filter(question_file=test, user=request.user)
-
-    # Создаем словарь для хранения неправильных ответов
-    incorrect_answers = {}
-
-    # Проходим по всем вопросам
-    for question in questions:
-        # Получаем список правильных ответов на текущий вопрос
-        correct_answers = list(Answer.objects.filter(question=question, is_correct=True).values_list('id', flat=True))
-
-        # Получаем ответы пользователя на текущий вопрос
-        user_answer = user_tests.filter(question=question).first()
-
-        # Проверяем, является ли ответ пользователя правильным
-        if user_answer:
-            user_selected_answer = user_answer.answer_id
-            if user_selected_answer != correct_answers:
-                # Если ответ пользователя неправильный, добавляем его в словарь неправильных ответов
-                incorrect_answers[question] = user_selected_answer
-
     # Рассчитываем процент правильных ответов
     percentage = (user_score.score / user_score.total_questions) * 100 if user_score.total_questions > 0 else 0
 
+    # Получаем все вопросы из теста
+    questions = test.question_set.all()
+
     # Передаем данные в шаблон для отображения
-    return render(request, 'polls/test_result.html', {'test': test, 'user_score': user_score,
-                                                       'percentage': percentage, 'incorrect_answers': incorrect_answers})
-
-
-
-
+    return render(request, 'polls/test_result.html', {'test': test, 'user_score': user_score, 'percentage': percentage,
+                                                      'questions': questions})
 
 # TODO у каждого пользователя свой список тестирования

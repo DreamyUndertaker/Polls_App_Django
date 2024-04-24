@@ -9,9 +9,14 @@
         <ul>
           {% for answer in question.answer_set.all %}
             <li>
-              <input type="checkbox" name="question_{{ question.id }}" value="{{ answer.id }}"
-                     {% if question.id|add:":"|add:answer.id in user_answers %} checked {% endif %}>
-              {{ answer.answer_text }} {% if answer.is_correct %}(Correct){% endif %}
+                <label>
+                    <input type="checkbox" name="question_{{ question.id }}" value="{{ answer.id }}"
+                           {% if question.id|add:":"|add:answer.id in user_answers %} checked {% endif %}>
+                </label>
+                {{ answer.answer_text }}
+{#                {% if answer.is_correct %}#}
+{#                    (Correct)#}
+{#                {% endif %}#}
             </li>
           {% endfor %}
         </ul>
