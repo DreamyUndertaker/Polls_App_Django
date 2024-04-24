@@ -1,10 +1,15 @@
+from datetime import timedelta
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class QuestionFile(models.Model):
     title = models.CharField(max_length=255)
     file = models.FileField(upload_to='polls/quiz/', null=False, blank=False, default=None)
+    time_limit = models.DurationField(default=timedelta(hours=1))
+    start_time = models.DateTimeField(null=True, blank=True)  # Добавляем поле start_time
 
     class Meta:
         verbose_name = 'Файл с вопросами'
@@ -54,6 +59,8 @@ class UserScore(models.Model):
     score = models.IntegerField(default=0)
     total_questions = models.IntegerField(default=0)
     question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
+    start_time = models.DateTimeField(
+        default=timezone.now)  # Добавляем поле start_time для хранения времени начала тестирования
 
     def __str__(self):
         return f"{self.user.username}'s Score"
@@ -61,3 +68,5 @@ class UserScore(models.Model):
     class Meta:
         verbose_name = 'Оценка пользователя'
         verbose_name_plural = 'Оценки пользователей'
+
+# TODO добавить адрес пользователя

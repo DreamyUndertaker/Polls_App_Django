@@ -1,5 +1,18 @@
 <h1>{{ test.title }}</h1>
 <title>{{ test.title }}</title>
+
+<!-- Добавляем отображение таймера -->
+<p id="timer">Time left: {{ test.time_limit|time }}</p>
+
+<!-- Добавляем сообщения об истечении времени -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <form method="post" action="{% url 'submit_test' test.id %}">
   {% csrf_token %}
   <ul>
@@ -14,9 +27,6 @@
                            {% if question.id|add:":"|add:answer.id in user_answers %} checked {% endif %}>
                 </label>
                 {{ answer.answer_text }}
-{#                {% if answer.is_correct %}#}
-{#                    (Correct)#}
-{#                {% endif %}#}
             </li>
           {% endfor %}
         </ul>
@@ -25,3 +35,29 @@
   </ul>
   <button type="submit">Submit Test</button>
 </form>
+
+<script>
+// Устанавливаем время в секундах
+var timeInSeconds = {{ test.time_limit.total_seconds }};
+var timerDisplay = document.getElementById('timer');
+
+// Функция для обновления таймера
+function updateTimer() {
+    var minutes = Math.floor(timeInSeconds / 60);
+    var seconds = timeInSeconds % 60;
+    timerDisplay.textContent = 'Time left: ' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+    timeInSeconds--;
+    if (timeInSeconds < 0) {
+        // Если время истекло, отправляем форму автоматически
+        document.querySelector('form').submit();
+    }
+}
+
+// Запускаем таймер каждую секунду
+setInterval(updateTimer, 1000);
+</script>
+
+
+{#                {% if answer.is_correct %}#}
+{#                    (Correct)#}
+{#                {% endif %}#}

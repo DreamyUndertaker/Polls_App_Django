@@ -1,8 +1,12 @@
 import os
 from collections import defaultdict
+from datetime import timedelta
+
 from django.contrib import messages
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+
 from .forms import QuestionForm
 from .models import Question, Answer, QuestionFile, UserTest, UserScore
 
@@ -77,12 +81,19 @@ def test_list(request):
 
 
 def submit_test(request, question_file_id):
+
     if request.method == 'POST':
         # Получаем данные из POST-запроса
         user_answers = request.POST
 
         # Получаем объект теста
         test = get_object_or_404(QuestionFile, pk=question_file_id)
+
+        # Проверяем, не истекло ли время на тестирование
+        time_left = test.time_limit - (timezone.now() - test.start_time)
+        if time_left <= timedelta(seconds=0):
+            # Если время истекло, выводим сообщение об ошибке или делаем редирект
+            return HttpResponse("Time limit exceeded!")
 
         # Получаем все вопросы для этого теста
         questions = Question.objects.filter(question_file=test)
@@ -115,6 +126,7 @@ def submit_test(request, question_file_id):
         user_score, created = UserScore.objects.get_or_create(user=request.user, question_file=test)
         user_score.score = correct_answers_count
         user_score.total_questions = questions.count()
+        user_score.start_time = timezone.now()  # Устанавливаем start_time при сохранении оценки
         user_score.save()
 
         # Выводим сообщение об успешной отправке теста
@@ -129,21 +141,29 @@ def submit_test(request, question_file_id):
 
 def test_detail(request, test_id):
     test = get_object_or_404(QuestionFile, pk=test_id)
-    questions = test.question_set.all()  # Получаем все вопросы из файла
-    user_tests = UserTest.objects.filter(question_file=test,
-                                         user=request.user)  # Получаем ответы пользователя для данного теста
-    user_answers = {user_test.question_id: user_test.answer_id for user_test in
-                    user_tests}  # Создаем словарь ответов пользователя
+    questions = test.question_set.all()
+    user_tests = UserTest.objects.filter(question_file=test, user=request.user)
+    user_answers = {user_test.question_id: user_test.answer_id for user_test in user_tests}
+
+    # Получаем объект UserScore для данного теста и пользователя
+    user_score = get_object_or_404(UserScore, user=request.user, question_file=test)
+
+    # Вычисляем оставшееся время на тестирование
+    if user_score.start_time:
+        time_left = user_score.question_file.time_limit - (timezone.now() - user_score.start_time)
+    else:
+        time_left = None
+
     return render(request, 'polls/test_detail.html',
-                  {'test': test, 'questions': questions, 'user_answers': user_answers})
+                  {'test': test, 'questions': questions, 'user_answers': user_answers, 'time_left': time_left})
 
 
 def test_result(request, question_file_id):
+    # Получаем объект теста
     try:
-        # Получаем объект теста
         test = QuestionFile.objects.get(pk=question_file_id)
     except QuestionFile.DoesNotExist:
-        # Если тест не найден, выводим сообщение об ошибке
+        print("Test not found")  # Отладочный вывод
         raise Http404("Test does not exist")
 
     # Получаем оценку пользователя для данного теста
@@ -152,11 +172,38 @@ def test_result(request, question_file_id):
     # Рассчитываем процент правильных ответов
     percentage = (user_score.score / user_score.total_questions) * 100 if user_score.total_questions > 0 else 0
 
+    # Получаем текущее время
+    current_time = timezone.now()
+
+    # Проверяем, прошел ли пользователь тест вовремя
+    if test.start_time:
+        time_left = test.time_limit - (current_time - test.start_time)
+        if time_left <= timedelta(seconds=0):
+            # Если время истекло, добавляем сообщение об этом
+            messages.warning(request, 'Время на прохождение теста истекло.')
+    else:
+        time_left = None
+
     # Получаем все вопросы из теста
     questions = test.question_set.all()
 
+    # Получаем ответы пользователя для данного теста
+    user_tests = UserTest.objects.filter(question_file=test, user=request.user)
+
+    # Создаем словарь для хранения выбранных ответов пользователя
+    user_answers = {}
+    for user_test in user_tests:
+        user_answers[user_test.question_id] = user_test.answer_id
+
     # Передаем данные в шаблон для отображения
-    return render(request, 'polls/test_result.html', {'test': test, 'user_score': user_score, 'percentage': percentage,
-                                                      'questions': questions})
+    return render(request, 'polls/test_result.html', {
+        'test': test,
+        'user_score': user_score,
+        'percentage': percentage,
+        'questions': questions,
+        'user_answers': user_answers,
+        'current_time': current_time,  # Передаем текущее время в шаблон
+        'time_left': time_left,  # Передаем оставшееся время в шаблон
+    })
 
 # TODO у каждого пользователя свой список тестирования
