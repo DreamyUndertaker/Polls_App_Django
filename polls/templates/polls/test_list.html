@@ -2,7 +2,11 @@
 
 {% block content %}
 <h1>Список доступных тестов</h1>
-<a href="{% url 'upload_questions' %}">Загрузить</a>
+    {% if user.is_superuser  %}
+        <a href="{% url 'upload_questions' %}" class="btn btn-primary">
+            Загрузить
+        </a>
+    {% endif %}
     {% if tests %}
     <ul class="list-group">
         {% for test in tests %}
@@ -17,3 +21,5 @@
         <h3>No tests available</h3>
     {% endif %}
 {% endblock %}
+
+{# TODO кнопка загрузки файла с тестом только для админа #}

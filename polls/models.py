@@ -59,8 +59,7 @@ class UserScore(models.Model):
     score = models.IntegerField(default=0)
     total_questions = models.IntegerField(default=0)
     question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
-    start_time = models.DateTimeField(
-        default=timezone.now)  # Добавляем поле start_time для хранения времени начала тестирования
+    start_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f"{self.user.username}'s Score"
