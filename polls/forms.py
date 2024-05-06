@@ -5,5 +5,4 @@ from .models import QuestionFile
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = QuestionFile
-        fields = ['title', 'file']
-        required = ['title', 'file']
+        fields = ['title', 'file', 'time_limit']

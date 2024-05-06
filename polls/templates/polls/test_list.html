@@ -1,17 +1,25 @@
 {% extends 'home/layout.html' %}
+
 {% block content %}
-<h1>Test List</h1>
-<a href="{% url 'upload_questions' %}">Upload</a>
-<ul>
+<h1>Список доступных тестов</h1>
+    {% if user.is_superuser  %}
+        <a href="{% url 'upload_questions' %}" class="btn btn-primary">
+            Загрузить
+        </a>
+    {% endif %}
     {% if tests %}
-    <ul>
+    <ul class="list-group">
         {% for test in tests %}
-            <li>{{ test }}</li>
+            <li class="display-5 list-group-item list-group-item-action">
+                <a href="{% url 'test_detail' test.id %}" class="text-decoration-none" style="color: black">
+                    {{ test.title }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
-{% else %}
-    <p>No tests available</p>
-{% endif %}
-</ul>
-
+    {% else %}
+        <h3>No tests available</h3>
+    {% endif %}
 {% endblock %}
+
+{# TODO кнопка загрузки файла с тестом только для админа #}

@@ -1,19 +1,28 @@
+from datetime import timedelta
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
-class QuestionFile(models.Model):  # Исправлено на QuestionFile
-    title = models.CharField(max_length=255, default='')
-    file = models.FileField(upload_to='polls/quiz/', default='default_file', null=True, blank=True)
+class QuestionFile(models.Model):
+    title = models.CharField(max_length=255)
+    file = models.FileField(upload_to='polls/quiz/', null=False, blank=False, default=None)
+    time_limit = models.DurationField(default=timedelta(hours=1))
+    start_time = models.DateTimeField(null=True, blank=True)  # Добавляем поле start_time
+
+    class Meta:
+        verbose_name = 'Файл с вопросами'
+        verbose_name_plural = 'Файлы с вопросами'
 
 
 class Question(models.Model):
-    title = models.CharField(max_length=255, default='')
-    file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
+    question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=255, null=True)
 
-    def __str__(self):
-        return self.question_text or ''
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
 
 
 class Answer(models.Model):
@@ -24,12 +33,39 @@ class Answer(models.Model):
     def __str__(self):
         return self.answer_text
 
+    class Meta:
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
+
 
 class UserTest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    answer = models.ForeignKey('Answer', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
     is_correct = models.BooleanField(default=False)
+    correct_answers_count = models.IntegerField(default=0)
+    question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user.username}'s Test Result"
+
+    class Meta:
+        verbose_name = 'Вариант ответа пользователя'
+        verbose_name_plural = 'Варианты ответов пользователя'
+
+
+class UserScore(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
+    total_questions = models.IntegerField(default=0)
+    question_file = models.ForeignKey(QuestionFile, on_delete=models.CASCADE)
+    start_time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.user.username}'s Score"
+
+    class Meta:
+        verbose_name = 'Оценка пользователя'
+        verbose_name_plural = 'Оценки пользователей'
+
+# TODO добавить адрес пользователя

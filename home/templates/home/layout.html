@@ -77,33 +77,43 @@
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light fs-3" style="width: 280px; height: 100vh">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <svg class="bi me-2" width="40" height="32">
+                    <use href="#bootstrap"></use>
+                </svg>
                 <span class="fs-2">Навигация</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{% url 'home' %}" class="nav-link link-dark" aria-current="page">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                        <svg class="bi me-2" width="16" height="16">
+                            <use href="#home"></use>
+                        </svg>
                         Главная
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'test_list' %}" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                        <svg class="bi me-2" width="16" height="16">
+                            <use href="#speedometer2"></use>
+                        </svg>
                         Тестирование
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'lecture_list' %}" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                        <svg class="bi me-2" width="16" height="16">
+                            <use href="#table"></use>
+                        </svg>
                         Документация
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                        Статистика
+                        <svg class="bi me-2" width="16" height="16">
+                            <use href="#grid"></use>
+                        </svg>
+                        Статистика {{ user }}
                     </a>
                 </li>
                 

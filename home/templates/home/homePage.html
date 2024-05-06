@@ -1,6 +1,19 @@
 {% extends 'home/layout.html' %}
 {% block title %}Главная{% endblock %}
 {% block content %}
-    homepage
-    
+    <h1>
+        Список доступных инструкций
+    </h1>
+    {% if instruction %}
+        <ul class="list-group">
+            {% for el in instruction %}
+                <li class="display-5 list-group-item list-group-item-action">
+                    <a href="{{ el.file.url }}" class="text-decoration-none" style="color: black">
+                        {{ el.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
 {% endblock %}

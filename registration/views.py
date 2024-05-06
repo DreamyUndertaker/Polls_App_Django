@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from .forms import LoginForm
 
-# Create your views here.
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

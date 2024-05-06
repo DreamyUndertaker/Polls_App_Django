@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Issue with file upload" />
+    <list default="true" id="d36c0aa6-6749-4f31-a63a-10b840687bfb" name="Changes" comment="Some cosmetic and code change (removed comment-lines)">
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,10 +19,18 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="4f91156d9779d02c2fba14b3b538c3c49312ca21" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,6 +45,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="Test" />
+                    <option name="lastUsedInstant" value="1711522669" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1711521922" />
                   </RecentBranch>
@@ -42,6 +60,9 @@
         </option>
       </RecentBranches>
     </option>
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="53ab6a91-7895-431b-a4e1-c0e775eede90" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,20 +82,30 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Django Server.test.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Dreamy_Undertaker/Документы/repos/test&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Test&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/Dreamy_Undertaker/MyFolder/Work/repos/test&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/polls" />
+      <recent name="$PROJECT_DIR$/media" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="test" type="Python.DjangoServer" factoryName="Django server">
       <module name="test" />
@@ -83,6 +114,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="test.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -119,7 +151,30 @@
       <workItem from="1711514671495" duration="67000" />
       <workItem from="1711514750855" duration="6664000" />
       <workItem from="1711522012455" duration="54000" />
-      <workItem from="1711522094556" duration="298000" />
+      <workItem from="1711522094556" duration="5491000" />
+      <workItem from="1711600189819" duration="3932000" />
+      <workItem from="1711605373687" duration="3853000" />
+      <workItem from="1711609252003" duration="1269000" />
+      <workItem from="1711611488196" duration="1187000" />
+      <workItem from="1711650360887" duration="261000" />
+      <workItem from="1711773080189" duration="887000" />
+      <workItem from="1711961051929" duration="5949000" />
+      <workItem from="1711967593929" duration="2272000" />
+      <workItem from="1711971164324" duration="3595000" />
+      <workItem from="1711995038966" duration="11836000" />
+      <workItem from="1712062658690" duration="227000" />
+      <workItem from="1712108734022" duration="15000" />
+      <workItem from="1712108767555" duration="95000" />
+      <workItem from="1712108879936" duration="64000" />
+      <workItem from="1712110003530" duration="42000" />
+      <workItem from="1712117265802" duration="66000" />
+      <workItem from="1712555851599" duration="4155000" />
+      <workItem from="1713555048792" duration="26000" />
+      <workItem from="1713602942082" duration="110000" />
+      <workItem from="1713847780899" duration="8893000" />
+      <workItem from="1713858275339" duration="11123000" />
+      <workItem from="1714106197716" duration="1209000" />
+      <workItem from="1714112589596" duration="1289000" />
     </task>
     <task id="LOCAL-00001" summary="Issue with file upload">
       <option name="closed" value="true" />
@@ -129,7 +184,127 @@
       <option name="project" value="LOCAL" />
       <updated>1711521791819</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create README.md">
+      <option name="closed" value="true" />
+      <created>1711522448887</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711522448887</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Some changes">
+      <option name="closed" value="true" />
+      <created>1711522521548</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711522521548</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Issue with file upload, open,read and save fixed">
+      <option name="closed" value="true" />
+      <created>1711526115376</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711526115376</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Issue with count result">
+      <option name="closed" value="true" />
+      <created>1711609161415</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711609161415</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Result fixed&#10;Issue with double add polls file">
+      <option name="closed" value="true" />
+      <created>1711610826476</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711610826476</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added instructions model, view, template&#10;Issue with double add polls file">
+      <option name="closed" value="true" />
+      <created>1711971325309</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711971325309</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Cosmetic changes &#10;Issue with double add polls file">
+      <option name="closed" value="true" />
+      <created>1711973296471</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711973296471</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Issue with double add polls file and with parse files">
+      <option name="closed" value="true" />
+      <created>1711974234383</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711974234383</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Cosmetic changes&#10;Issue with double add polls file and with parse files">
+      <option name="closed" value="true" />
+      <created>1712041988555</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712041988555</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Work day is out &#10;Issue with double add polls file and with parse files">
+      <option name="closed" value="true" />
+      <created>1712044194202</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712044194202</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Redacted directories for instructions&#10;TODO: parse file">
+      <option name="closed" value="true" />
+      <created>1712557450115</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712557450115</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Issue with count percent in mark">
+      <option name="closed" value="true" />
+      <created>1713857357213</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713857357213</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Issue with mark fixed">
+      <option name="closed" value="true" />
+      <created>1713956408374</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713956408374</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Timer added">
+      <option name="closed" value="true" />
+      <created>1713960951010</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713960951010</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Some cosmetic and code change (removed comment-lines)">
+      <option name="closed" value="true" />
+      <created>1714113594387</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714113594387</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +336,21 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Issue with file upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue with file upload" />
+    <MESSAGE value="Create README.md" />
+    <MESSAGE value="Some changes" />
+    <MESSAGE value="Issue with file upload, open,read and save fixed" />
+    <MESSAGE value="Issue with count result" />
+    <MESSAGE value="Result fixed&#10;Issue with double add polls file" />
+    <MESSAGE value="Added instructions model, view, template&#10;Issue with double add polls file" />
+    <MESSAGE value="Cosmetic changes &#10;Issue with double add polls file" />
+    <MESSAGE value="Issue with double add polls file and with parse files" />
+    <MESSAGE value="Cosmetic changes&#10;Issue with double add polls file and with parse files" />
+    <MESSAGE value="Work day is out &#10;Issue with double add polls file and with parse files" />
+    <MESSAGE value="Redacted directories for instructions&#10;TODO: parse file" />
+    <MESSAGE value="Issue with count percent in mark" />
+    <MESSAGE value="Issue with mark fixed" />
+    <MESSAGE value="Timer added" />
+    <MESSAGE value="Some cosmetic and code change (removed comment-lines)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some cosmetic and code change (removed comment-lines)" />
   </component>
 </project>
