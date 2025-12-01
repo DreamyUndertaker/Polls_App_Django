@@ -1,11 +1,31 @@
 {% extends 'registration/layout.html' %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
-<form action="." method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <p>
-        <input type="submit" value="Войти">
-    </p>
-</form>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+    <div class="container-fluid" style="height: 100vh">
+        <div class="row justify-content-md-center row align-items-center" style="height: 100vh">
+            <div class="col-6" style="background: white; border-radius: 25px; padding-top: 20px">
+                <div class="col-8 align-self-center mx-auto">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% bootstrap_label 'Логин' %}
+                        {% bootstrap_field form.username show_label=False placeholder='Логин' %}
+
+                        {% bootstrap_label 'Пароль' %}
+                        {% bootstrap_field form.password show_label=False placeholder='Пароль' %}
+
+                        {{ form.errors }}
+
+                        <div class="d-grid gap-1 col-9 mx-auto" style="padding-bottom: 10px">
+                            <button type="submit" class="btn-success" >
+                                Войти
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

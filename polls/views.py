@@ -1,45 +1,53 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .forms import QuestionForm
+from .forms import QuestionFileForm
 from .models import Question, Answer, QuestionFile, UserTest
 
 
 def upload_questions(request):
     if request.method == 'POST':
-        form = QuestionForm(request.POST, request.FILES)
+        form = QuestionFileForm(request.POST, request.FILES)
         if form.is_valid():
-            question = form.save()  # Сохраняем форму, это создаст объект Question с прикрепленным файлом
-            process_file(question.file)  # Обрабатываем файл только здесь
-            return redirect('test_list')  # Редирект на страницу списка тестов
+            question_file = form.save()  # <-- Создаётся QuestionFile
+            process_file(question_file.file, question_file_instance=question_file)  # <-- Передаём его в обработку
+            return redirect('test_list')
     else:
-        form = QuestionForm()
+        form = QuestionFileForm()
     return render(request, 'polls/upload_questions.html', {'form': form})
 
 
-# TODO сделать обработку файла на этапе загрузки его от админа в бд
-def process_file(uploaded_file):
+def process_file(uploaded_file, question_file_instance):
     try:
         file_content = uploaded_file.open().read().decode('windows-1251')
         lines = file_content.splitlines()
-        current_question_file = QuestionFile.objects.create(file=uploaded_file)
+
         current_question = None
+
         for line in lines:
             line = line.strip()
             if line.startswith('-'):
                 if current_question is not None and current_question.question_text.strip():
                     current_question.save()
-                current_question = Question.objects.create(question_file=current_question_file, question_text=line[1:]
-                                                           .strip())
+                current_question = Question.objects.create(
+                    question_file=question_file_instance,  # ← используем существующий
+                    question_text=line[1:].strip()
+                )
+
             elif line.startswith('/'):
                 if current_question is not None:
                     answer_text = line[1:].strip()
                     is_correct = answer_text.endswith('*')
                     answer_text = answer_text[:-1].strip() if is_correct else answer_text.strip()
-                    answer = Answer.objects.create(question=current_question, answer_text=answer_text,
-                                                   is_correct=is_correct)
+                    Answer.objects.create(
+                        question=current_question,
+                        answer_text=answer_text,
+                        is_correct=is_correct
+                    )
+
         if current_question is not None and current_question.question_text.strip():
             current_question.save()
+
     except Exception as e:
         print(f"Ошибка при чтении файла: {e}")
 
